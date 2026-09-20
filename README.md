@@ -6,7 +6,7 @@ A calm, low-friction life-management app: tasks, habits, goals, notes, calendar,
 
 ## Status
 
-Early build. The foundation (monorepo, database schema + RLS, auth, design system, home/saga-map/onboarding flow, five environment scenes) is implemented and runs. Calendar sync, billing, push notifications, and the mobile app are designed (see `docs/`) but not yet built — each needs accounts/credentials only you can provide. See the docs listed below for exact status per area.
+**Live at https://web-rah22.vercel.app**, backed by a real Supabase project (schema + RLS applied, signup/auth verified end-to-end). The foundation (monorepo, database schema + RLS, auth, design system, home/saga-map/onboarding flow, five environment scenes) is implemented and deployed. Calendar sync, billing, push notifications, and the mobile app are designed (see `docs/`) but not yet built — each needs accounts/credentials only you can provide. See the docs listed below for exact status per area.
 
 ## Repo layout
 

@@ -1,6 +1,14 @@
 # Deployment
 
-Current status: **not yet deployed.** This documents the intended path once you have Supabase and Vercel accounts — an AI coding session cannot create third-party accounts or hold your production secrets, so this last step is yours to run.
+**Status: live.**
+
+- Web app: https://web-rah22.vercel.app (Vercel project `rah22/web`)
+- Database/Auth: Supabase project `LifeTracker` (ref `urequortpjryilczhnbu`)
+- Migrations applied: `0001_init.sql`, `0002_reference_data.sql`
+- Verified end-to-end: signup creates an auth user, the `handle_new_user` trigger populates `profiles`/`user_settings`/`environment_preferences`/`subscriptions`, and RLS blocks unauthenticated reads.
+- Not yet configured: Google OAuth (needs a Google Cloud OAuth client — the "Continue with Google" button will error until then), Stripe, Web Push. See `docs/ENVIRONMENT_VARIABLES.md`.
+
+This section below is kept as the reference procedure for redeploying, adding a custom domain, or standing up staging.
 
 ## 1. Supabase (database, auth, storage, edge functions)
 
