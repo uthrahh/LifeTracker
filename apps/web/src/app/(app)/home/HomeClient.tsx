@@ -44,7 +44,7 @@ export function HomeClient({ userId, fullName, scene, timeMode, showQuotes, quot
         <section id="today" className="flex items-center gap-5">
           <ProgressRing percent={progressPercent} label="today" />
           <div>
-            <p className="font-display text-lg text-ink">Today's progress</p>
+            <p className="font-display text-lg text-ink">Today&apos;s progress</p>
             <p className="text-sm text-ink-soft">
               {tasks.filter((t) => t.status === "completed").length + habitsWithStreaks.filter((h) => h.completedToday).length} of{" "}
               {tasks.length + habitsWithStreaks.length} complete

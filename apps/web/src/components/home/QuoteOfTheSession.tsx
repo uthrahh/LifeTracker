@@ -32,7 +32,7 @@ export function QuoteOfTheSession({ quotes }: { quotes: QuoteItem[] }) {
 
   return (
     <p className="max-w-md text-sm italic text-ink-soft">
-      "{quote.text}"{quote.author ? <span className="not-italic text-ink-faint"> — {quote.author}</span> : null}
+      &ldquo;{quote.text}&rdquo;{quote.author ? <span className="not-italic text-ink-faint"> — {quote.author}</span> : null}
     </p>
   );
 }

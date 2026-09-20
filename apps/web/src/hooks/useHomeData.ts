@@ -87,7 +87,7 @@ export function useHomeData(userId: string | undefined, todayLocal: string) {
     });
   }, [habitsQuery.data, completionsQuery.data, todayLocal]);
 
-  const tasks = tasksQuery.data ?? [];
+  const tasks = useMemo(() => tasksQuery.data ?? [], [tasksQuery.data]);
   const totalItems = tasks.length + habitsWithStreaks.length;
   const completedItems = tasks.filter((t) => t.status === "completed").length + habitsWithStreaks.filter((h) => h.completedToday).length;
   const progressPercent = totalItems === 0 ? 0 : Math.round((completedItems / totalItems) * 100);

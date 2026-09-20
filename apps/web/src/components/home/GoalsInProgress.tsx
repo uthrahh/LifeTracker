@@ -13,7 +13,7 @@ export function GoalsInProgress({ goals }: { goals: GoalWithProgress[] }) {
   if (goals.length === 0) {
     return (
       <Card>
-        <p className="font-display text-lg text-ink">Nothing you're working toward yet.</p>
+        <p className="font-display text-lg text-ink">Nothing you&apos;re working toward yet.</p>
         <p className="mt-1 text-sm text-ink-soft">Start with one thing that matters.</p>
         <Link href="/goals/new" className="focus-ring mt-3 inline-block text-sm font-medium text-accent">
           + Add a goal
