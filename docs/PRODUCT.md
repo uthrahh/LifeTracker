@@ -22,7 +22,7 @@ Progress rolls *up* this chain automatically (weighted aggregation, user-overrid
 
 ## Core modules (MVP scope, in build order)
 
-1. **Auth & Onboarding** — email/password + Google via Supabase Auth; 3-screen onboarding (name → focus areas → environment) ending in first goal creation.
+1. **Auth & Onboarding** — email/password via Supabase Auth; 3-screen onboarding (name → focus areas → environment) ending in first goal creation.
 2. **Home / Today** — greeting, rotating quote, today's progress ring, Next Action, today's tasks/habits, in-progress goals, saga map entry point.
 3. **Saga Map** — horizontal date-node journey; only today is expanded; past/future are smaller nodes; clicking a date opens that day.
 4. **Tasks** — full CRUD, natural-language quick add, recurrence, priority, category, links to goal/milestone.

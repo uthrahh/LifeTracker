@@ -9,7 +9,6 @@ import { signupSchema, type SignupInput } from "@/lib/authSchemas";
 import { createClient } from "@/lib/supabase/client";
 import { TextField } from "@/components/ui/TextField";
 import { Button } from "@/components/ui/Button";
-import { GoogleButton } from "@/components/auth/GoogleButton";
 
 export default function SignupPage() {
   const router = useRouter();
@@ -59,12 +58,6 @@ export default function SignupPage() {
       <div>
         <h1 className="font-display text-2xl text-ink">Start here</h1>
         <p className="text-sm text-ink-soft">One calm place for everything you&apos;re trying to improve.</p>
-      </div>
-
-      <GoogleButton />
-
-      <div className="flex items-center gap-3 text-xs text-ink-faint">
-        <span className="h-px flex-1 bg-border" /> or <span className="h-px flex-1 bg-border" />
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>

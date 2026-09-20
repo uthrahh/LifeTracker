@@ -9,7 +9,6 @@ import { loginSchema, type LoginInput } from "@/lib/authSchemas";
 import { createClient } from "@/lib/supabase/client";
 import { TextField } from "@/components/ui/TextField";
 import { Button } from "@/components/ui/Button";
-import { GoogleButton } from "@/components/auth/GoogleButton";
 
 export default function LoginPage() {
   return (
@@ -47,12 +46,6 @@ function LoginForm() {
       <div>
         <h1 className="font-display text-2xl text-ink">Welcome back</h1>
         <p className="text-sm text-ink-soft">Pick up where you left off.</p>
-      </div>
-
-      <GoogleButton />
-
-      <div className="flex items-center gap-3 text-xs text-ink-faint">
-        <span className="h-px flex-1 bg-border" /> or <span className="h-px flex-1 bg-border" />
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4" noValidate>

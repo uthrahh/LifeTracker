@@ -6,7 +6,7 @@
 - Database/Auth: Supabase project `LifeTracker` (ref `urequortpjryilczhnbu`)
 - Migrations applied: `0001_init.sql`, `0002_reference_data.sql`
 - Verified end-to-end: signup creates an auth user, the `handle_new_user` trigger populates `profiles`/`user_settings`/`environment_preferences`/`subscriptions`, and RLS blocks unauthenticated reads.
-- Not yet configured: Google OAuth (needs a Google Cloud OAuth client — the "Continue with Google" button will error until then), Stripe, Web Push. See `docs/ENVIRONMENT_VARIABLES.md`.
+- Not yet configured: Google Calendar sync (needs a Google Cloud OAuth client), Stripe, Web Push. See `docs/ENVIRONMENT_VARIABLES.md`. Sign-in is email/password only — no social login.
 
 This section below is kept as the reference procedure for redeploying, adding a custom domain, or standing up staging.
 
@@ -14,7 +14,7 @@ This section below is kept as the reference procedure for redeploying, adding a 
 
 1. Create a project at supabase.com (pick a region close to your users).
 2. `supabase link --project-ref <ref>` then `supabase db push` to apply `supabase/migrations/`.
-3. In Authentication → Providers, enable Email and Google (paste the Google OAuth client id/secret from `docs/ENVIRONMENT_VARIABLES.md`).
+3. In Authentication → Providers, confirm Email is enabled (it is by default).
 4. In Authentication → URL Configuration, set the Site URL to your production domain and add `/auth/callback` as a redirect URL.
 5. Copy the Project URL, anon key, and service role key into your deployment environment's variables (never into a committed file).
 

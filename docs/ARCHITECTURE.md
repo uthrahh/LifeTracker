@@ -35,7 +35,7 @@ We use **npm workspaces** (not pnpm/turborepo) to keep the toolchain to what's a
 
 ## Authentication & authorization
 
-- Supabase Auth (email/password + Google OAuth). Supabase issues the session; the Next.js app reads it via `@supabase/ssr` cookies, never via a client-only token in localStorage.
+- Supabase Auth (email/password). Supabase issues the session; the Next.js app reads it via `@supabase/ssr` cookies, never via a client-only token in localStorage.
 - **Every table has Row Level Security enabled.** Policy pattern: `user_id = auth.uid()` on the owning table, and a join-based policy for child tables (e.g. `habit_completions` checks the parent `habits.user_id`). No API route trusts a client-supplied `user_id` — it's always read from the verified session on the server.
 - Service-role key is used only inside Edge Functions / server-only routes (calendar sync, Stripe webhooks) and is never bundled into client code.
 
