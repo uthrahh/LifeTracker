@@ -1,9 +1,14 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Task, Habit, HabitCompletion, Goal, Milestone } from "@wayfare/types";
+import { snakeToCamelArray } from "@wayfare/utils";
 
 /** Thin, typed query functions. Every one filters through RLS implicitly —
  * the server never needs to add `user_id = ...` itself because Postgres
- * enforces it, but we still scope by the known user id to keep query plans tight. */
+ * enforces it, but we still scope by the known user id to keep query plans tight.
+ *
+ * Every row that comes back from PostgREST is snake_case; it goes through
+ * `snakeToCamelArray` before being handed out as one of our camelCase types —
+ * skipping that step is how a field silently becomes `undefined`. */
 
 export async function fetchTasksForDate(supabase: SupabaseClient, userId: string, date: string) {
   const { data, error } = await supabase
@@ -15,7 +20,7 @@ export async function fetchTasksForDate(supabase: SupabaseClient, userId: string
     .order("priority", { ascending: false })
     .order("sort_order", { ascending: true });
   if (error) throw error;
-  return (data ?? []) as unknown as Task[];
+  return snakeToCamelArray<Task>(data ?? []);
 }
 
 export async function fetchActiveHabits(supabase: SupabaseClient, userId: string) {
@@ -25,7 +30,7 @@ export async function fetchActiveHabits(supabase: SupabaseClient, userId: string
     .eq("user_id", userId)
     .eq("status", "active");
   if (error) throw error;
-  return (data ?? []) as unknown as Habit[];
+  return snakeToCamelArray<Habit>(data ?? []);
 }
 
 export async function fetchHabitCompletionsInRange(
@@ -41,7 +46,7 @@ export async function fetchHabitCompletionsInRange(
     .gte("completed_date", startDate)
     .lte("completed_date", endDate);
   if (error) throw error;
-  return (data ?? []) as unknown as HabitCompletion[];
+  return snakeToCamelArray<HabitCompletion>(data ?? []);
 }
 
 export async function fetchGoalsInProgress(supabase: SupabaseClient, userId: string) {
@@ -53,7 +58,7 @@ export async function fetchGoalsInProgress(supabase: SupabaseClient, userId: str
     .order("updated_at", { ascending: false })
     .limit(6);
   if (error) throw error;
-  return (data ?? []) as unknown as Goal[];
+  return snakeToCamelArray<Goal>(data ?? []);
 }
 
 export async function fetchMilestonesForGoals(supabase: SupabaseClient, userId: string, goalIds: string[]) {
@@ -65,7 +70,7 @@ export async function fetchMilestonesForGoals(supabase: SupabaseClient, userId: 
     .in("goal_id", goalIds)
     .order("sort_order", { ascending: true });
   if (error) throw error;
-  return (data ?? []) as unknown as Milestone[];
+  return snakeToCamelArray<Milestone>(data ?? []);
 }
 
 export async function toggleTaskCompletion(supabase: SupabaseClient, taskId: string, completed: boolean) {

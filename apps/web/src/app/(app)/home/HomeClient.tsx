@@ -7,6 +7,7 @@ import { EnvironmentRenderer } from "@/components/environment/EnvironmentRendere
 import { useEnvironmentState } from "@/hooks/useEnvironmentState";
 import { useHomeData } from "@/hooks/useHomeData";
 import { GreetingHeader } from "@/components/home/GreetingHeader";
+import { SignOutButton } from "@/components/home/SignOutButton";
 import { QuoteOfTheSession } from "@/components/home/QuoteOfTheSession";
 import { NextActionCard } from "@/components/home/NextActionCard";
 import { TodayList } from "@/components/home/TodayList";
@@ -36,9 +37,12 @@ export function HomeClient({ userId, fullName, scene, timeMode, showQuotes, quot
     <>
       <EnvironmentRenderer {...environment} />
       <div className="space-y-8 animate-fade-in">
-        <header className="space-y-2">
-          <GreetingHeader name={fullName.split(" ")[0] ?? fullName} />
-          {showQuotes && <QuoteOfTheSession quotes={quotes} />}
+        <header className="flex items-start justify-between gap-4">
+          <div className="space-y-2">
+            <GreetingHeader name={fullName.split(" ")[0] ?? fullName} />
+            {showQuotes && <QuoteOfTheSession quotes={quotes} />}
+          </div>
+          <SignOutButton />
         </header>
 
         <section id="today" className="flex items-center gap-5">

@@ -19,6 +19,7 @@ export default function OnboardingPage() {
   const [scene, setScene] = useState<EnvironmentScene>("fields");
   const [firstGoal, setFirstGoal] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   function toggleFocus(area: string) {
     setFocusAreas((prev) => (prev.includes(area) ? prev.filter((a) => a !== area) : [...prev, area]));
@@ -26,21 +27,39 @@ export default function OnboardingPage() {
 
   async function finish() {
     setIsSubmitting(true);
+    setSubmitError(null);
     const supabase = createClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) {
+      setIsSubmitting(false);
+      setSubmitError("Your session expired — please sign in again.");
+      router.push("/login");
+      return;
+    }
 
-    await supabase.from("environment_preferences").upsert({ user_id: user.id, scene, time_mode: "auto" });
+    const { error: envError } = await supabase
+      .from("environment_preferences")
+      .upsert({ user_id: user.id, scene, time_mode: "auto" });
+    if (envError) {
+      setIsSubmitting(false);
+      setSubmitError(envError.message);
+      return;
+    }
 
     if (firstGoal.trim()) {
-      await supabase.from("goals").insert({
+      const { error: goalError } = await supabase.from("goals").insert({
         user_id: user.id,
         title: firstGoal.trim(),
         type: "short_term",
         status: "active",
       });
+      if (goalError) {
+        setIsSubmitting(false);
+        setSubmitError(goalError.message);
+        return;
+      }
     }
 
     router.push("/home");
@@ -112,6 +131,7 @@ export default function OnboardingPage() {
               onChange={(e) => setFirstGoal(e.target.value)}
             />
           </div>
+          {submitError ? <p className="mt-3 text-sm text-red-500">{submitError}</p> : null}
           <Button className="mt-6 w-full" disabled={isSubmitting} onClick={finish}>
             {isSubmitting ? "Setting things up…" : "Enter Wayfare"}
           </Button>

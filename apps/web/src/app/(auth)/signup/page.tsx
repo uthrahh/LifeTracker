@@ -36,7 +36,21 @@ export default function SignupPage() {
       setServerError(error.message);
       return;
     }
-    if (data.session) {
+
+    let session = data.session;
+    if (!session) {
+      // Autoconfirm is on (this app doesn't gate access behind email
+      // verification), but /signup still doesn't hand back a session —
+      // sign in immediately so the user never sees an unnecessary
+      // "check your inbox" step for an account that's already usable.
+      const { data: signInData } = await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+      session = signInData.session;
+    }
+
+    if (session) {
       router.push("/onboarding");
       router.refresh();
     } else {

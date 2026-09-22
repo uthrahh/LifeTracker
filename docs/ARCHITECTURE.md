@@ -38,6 +38,8 @@ We use **npm workspaces** (not pnpm/turborepo) to keep the toolchain to what's a
 - Supabase Auth (email/password). Supabase issues the session; the Next.js app reads it via `@supabase/ssr` cookies, never via a client-only token in localStorage.
 - **Every table has Row Level Security enabled.** Policy pattern: `user_id = auth.uid()` on the owning table, and a join-based policy for child tables (e.g. `habit_completions` checks the parent `habits.user_id`). No API route trusts a client-supplied `user_id` — it's always read from the verified session on the server.
 - Service-role key is used only inside Edge Functions / server-only routes (calendar sync, Stripe webhooks) and is never bundled into client code.
+- Login exists to attach a user's data to them, not to gate features behind a permission system — there's one implicit role (the account owner) and no admin/RBAC layer yet. Accordingly, email confirmation is auto-approved (`mailer_autoconfirm` on the Supabase project) so signup → usable account happens in one step; RLS is still what actually protects each user's data, confirmation was never the security boundary.
+- **PostgREST returns snake_case column names; every shared type in `@wayfare/types` is camelCase.** Every query function in `apps/web/src/lib/queries.ts` must pass its result through `snakeToCamelArray` (`packages/utils/src/caseTransform.ts`) before returning — skipping this makes multi-word fields (`due_date`, `progress_override`, ...) silently `undefined` instead of erroring, which is exactly the bug that shipped once already (see `packages/utils/src/caseTransform.test.ts`).
 
 ## Database model (initial migration — see `supabase/migrations`)
 
