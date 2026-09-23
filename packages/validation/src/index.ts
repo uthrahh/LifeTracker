@@ -1,5 +1,13 @@
 import { z } from "zod";
 
+const emptyToUndefined = (v: unknown) => (v === "" ? undefined : v);
+/** An optional uuid field that also tolerates "" — the value a native
+ * <select> submits for an unselected/placeholder option — instead of
+ * failing .uuid() validation on it. */
+const optionalUuid = z.preprocess(emptyToUndefined, z.string().uuid().optional().nullable());
+/** Same tolerance for optional date fields, since a cleared <input type="date"> submits "". */
+const optionalDateStr = z.preprocess(emptyToUndefined, z.string().date().optional().nullable());
+
 export const taskPrioritySchema = z.enum(["low", "medium", "high"]);
 export const goalTypeSchema = z.enum(["short_term", "long_term"]);
 
@@ -12,16 +20,16 @@ export const taskRecurrenceSchema = z.discriminatedUnion("type", [
 export const createTaskSchema = z.object({
   title: z.string().trim().min(1, "Give this a title").max(200),
   description: z.string().max(2000).optional(),
-  dueDate: z.string().date().optional().nullable(),
+  dueDate: optionalDateStr,
   dueTime: z
     .string()
     .regex(/^([01]\d|2[0-3]):[0-5]\d$/)
     .optional()
     .nullable(),
   priority: taskPrioritySchema.default("medium"),
-  categoryId: z.string().uuid().optional().nullable(),
-  goalId: z.string().uuid().optional().nullable(),
-  milestoneId: z.string().uuid().optional().nullable(),
+  categoryId: optionalUuid,
+  goalId: optionalUuid,
+  milestoneId: optionalUuid,
   estimatedDurationMinutes: z.number().int().positive().max(24 * 60).optional().nullable(),
   recurrenceRule: taskRecurrenceSchema.optional().nullable(),
   reminderAt: z.string().datetime().optional().nullable(),
@@ -36,11 +44,11 @@ export const updateTaskSchema = createTaskSchema.partial().extend({
 export const createGoalSchema = z.object({
   title: z.string().trim().min(1, "Give this a name").max(150),
   description: z.string().max(2000).optional(),
-  parentGoalId: z.string().uuid().optional().nullable(),
-  categoryId: z.string().uuid().optional().nullable(),
+  parentGoalId: optionalUuid,
+  categoryId: optionalUuid,
   type: goalTypeSchema,
-  startDate: z.string().date().optional().nullable(),
-  targetDate: z.string().date().optional().nullable(),
+  startDate: optionalDateStr,
+  targetDate: optionalDateStr,
 });
 export type CreateGoalInput = z.infer<typeof createGoalSchema>;
 
@@ -49,7 +57,7 @@ export const createMilestoneSchema = z.object({
   title: z.string().trim().min(1).max(150),
   description: z.string().max(2000).optional(),
   weight: z.number().positive().max(100).default(1),
-  targetDate: z.string().date().optional().nullable(),
+  targetDate: optionalDateStr,
 });
 export type CreateMilestoneInput = z.infer<typeof createMilestoneSchema>;
 
@@ -61,7 +69,7 @@ export const habitFrequencySchema = z.discriminatedUnion("type", [
 
 export const createHabitSchema = z.object({
   title: z.string().trim().min(1).max(150),
-  categoryId: z.string().uuid().optional().nullable(),
+  categoryId: optionalUuid,
   frequency: habitFrequencySchema,
   targetStreak: z.number().int().positive().optional().nullable(),
   startDate: z.string().date(),
@@ -90,8 +98,8 @@ export const createCalendarEventSchema = z.object({
   startAt: z.string().datetime(),
   endAt: z.string().datetime(),
   allDay: z.boolean().default(false),
-  taskId: z.string().uuid().optional().nullable(),
-  goalId: z.string().uuid().optional().nullable(),
+  taskId: optionalUuid,
+  goalId: optionalUuid,
 });
 export type CreateCalendarEventInput = z.infer<typeof createCalendarEventSchema>;
 

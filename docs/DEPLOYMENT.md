@@ -7,6 +7,7 @@
 - Migrations applied: `0001_init.sql`, `0002_reference_data.sql`
 - Verified end-to-end: signup creates an auth user, the `handle_new_user` trigger populates `profiles`/`user_settings`/`environment_preferences`/`subscriptions`, RLS blocks unauthenticated reads, and a full signup → onboarding → sign out → sign back in loop returns the same remembered data (tested via a real browser click-through, not just API calls).
 - Auth is autoconfirm (no email-verification step) — see `docs/ARCHITECTURE.md#authentication--authorization` for why.
+- Core nav (`/home`, `/calendar`, `/goals`, `/habits`, `/notes`) all resolve to real pages with working CRUD, verified via a real browser click-through against the live database (create → persist → reload) and cleaned up afterward. See `docs/PRODUCT.md#core-modules-mvp-scope-in-build-order` for exactly what's live vs. still partial per module.
 - Not yet configured: Google Calendar sync (needs a Google Cloud OAuth client), Stripe, Web Push. See `docs/ENVIRONMENT_VARIABLES.md`. Sign-in is email/password only — no social login.
 
 This section below is kept as the reference procedure for redeploying, adding a custom domain, or standing up staging.
