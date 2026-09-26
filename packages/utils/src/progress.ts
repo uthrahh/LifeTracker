@@ -1,4 +1,4 @@
-import type { MilestoneStatus } from "@wayfare/types";
+import type { MilestoneStatus } from "@luma/types";
 
 const MILESTONE_STATUS_PERCENT: Record<MilestoneStatus, number> = {
   pending: 0,

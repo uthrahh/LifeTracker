@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { ENVIRONMENTS } from "@wayfare/config";
+import { ENVIRONMENTS } from "@luma/config";
 
 const FEATURES = [
   { title: "One next action", body: "Not a 40-item list — the one thing worth starting with, and why it's first." },
@@ -15,7 +15,7 @@ export default function MarketingHome() {
   return (
     <div className="min-h-screen bg-paper">
       <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-        <span className="font-display text-xl text-ink">Wayfare</span>
+        <span className="font-display text-xl text-ink">Luma</span>
         <nav className="flex items-center gap-4">
           <Link href="/login" className="focus-ring text-sm text-ink-soft hover:text-ink">
             Sign in
@@ -88,7 +88,7 @@ export default function MarketingHome() {
       </section>
 
       <footer className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 text-sm text-ink-faint sm:flex-row">
-        <span>© {new Date().getFullYear()} Wayfare</span>
+        <span>© {new Date().getFullYear()} Luma</span>
         <div className="flex gap-4">
           <Link href="/privacy" className="focus-ring hover:text-ink-soft">
             Privacy

@@ -14,13 +14,13 @@ export function QuoteOfTheSession({ quotes }: { quotes: QuoteItem[] }) {
   useEffect(() => {
     if (quotes.length === 0) return;
     try {
-      const cached = sessionStorage.getItem("wayfare:quote-index");
+      const cached = sessionStorage.getItem("luma:quote-index");
       let index: number;
       if (cached !== null) {
         index = Number(cached);
       } else {
         index = Math.floor(Math.random() * quotes.length);
-        sessionStorage.setItem("wayfare:quote-index", String(index));
+        sessionStorage.setItem("luma:quote-index", String(index));
       }
       setQuote(quotes[index % quotes.length] ?? quotes[0]!);
     } catch {

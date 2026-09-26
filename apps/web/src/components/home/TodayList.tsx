@@ -2,8 +2,8 @@
 
 import { Card } from "@/components/ui/Card";
 import { CheckCircle } from "@/components/ui/CheckCircle";
-import type { Task, Habit } from "@wayfare/types";
-import type { HabitStreakResult } from "@wayfare/utils";
+import type { Task, Habit } from "@luma/types";
+import type { HabitStreakResult } from "@luma/utils";
 
 export interface TodayListProps {
   tasks: Task[];

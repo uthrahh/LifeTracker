@@ -1,4 +1,4 @@
-import type { TaskPriority } from "@wayfare/types";
+import type { TaskPriority } from "@luma/types";
 
 export interface NextActionCandidate {
   id: string;

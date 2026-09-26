@@ -6,7 +6,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@wayfare/types": new URL("../types/src/index.ts", import.meta.url).pathname,
+      "@luma/types": new URL("../types/src/index.ts", import.meta.url).pathname,
     },
   },
 });

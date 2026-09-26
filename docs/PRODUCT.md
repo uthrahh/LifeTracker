@@ -1,10 +1,10 @@
-# Product Spec — Wayfare
+# Product Spec — Luma
 
-> Working name: **Wayfare** (placeholder — trivial to rename; only appears in `apps/web/src/config/brand.ts` and marketing copy).
+> Product name: **Luma**.
 
 ## Positioning
 
-"One calm place for everything you're trying to improve." Wayfare merges tasks, habits, goals, calendar, notes, and a focus timer into a single low-friction daily surface, so the user spends energy *doing* rather than *planning*. No diagnostic/medical framing anywhere in the product — it's built for anyone whose plans outpace their execution, but it never says so.
+"One calm place for everything you're trying to improve." Luma merges tasks, habits, goals, calendar, notes, and a focus timer into a single low-friction daily surface, so the user spends energy *doing* rather than *planning*. No diagnostic/medical framing anywhere in the product — it's built for anyone whose plans outpace their execution, but it never says so.
 
 ## Product principle (the filter every feature must pass)
 

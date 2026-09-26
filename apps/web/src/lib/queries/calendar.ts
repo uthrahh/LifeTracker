@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { CalendarEvent } from "@wayfare/types";
-import { snakeToCamelArray } from "@wayfare/utils";
+import type { CalendarEvent } from "@luma/types";
+import { snakeToCamelArray } from "@luma/utils";
 
 export async function fetchEventsInRange(supabase: SupabaseClient, userId: string, startIso: string, endIso: string) {
   const { data, error } = await supabase

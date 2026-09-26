@@ -1,4 +1,4 @@
-project_id = "wayfare"
+project_id = "luma"
 
 [api]
 enabled = true

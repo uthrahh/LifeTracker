@@ -1,6 +1,6 @@
 /**
  * Postgres/PostgREST return rows with snake_case column names; every shared
- * type in @wayfare/types is camelCase. Every query function that casts a
+ * type in @luma/types is camelCase. Every query function that casts a
  * Supabase response to one of those types MUST pass it through this first —
  * otherwise multi-word fields (due_date, progress_override, category_id, ...)
  * silently come back `undefined` instead of throwing, which is how this bug

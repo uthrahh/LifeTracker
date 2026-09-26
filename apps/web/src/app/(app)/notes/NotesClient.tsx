@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createClient } from "@/lib/supabase/client";
 import { fetchNotes, createNote, updateNote, togglePinNote, deleteNote, readNoteText } from "@/lib/queries/notes";
-import type { Note } from "@wayfare/types";
+import type { Note } from "@luma/types";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { TextField } from "@/components/ui/TextField";

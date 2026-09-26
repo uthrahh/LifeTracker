@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
-import type { Goal, Milestone } from "@wayfare/types";
-import type { GoalProgressResult } from "@wayfare/utils";
+import type { Goal, Milestone } from "@luma/types";
+import type { GoalProgressResult } from "@luma/utils";
 
 export interface GoalWithProgress {
   goal: Goal;

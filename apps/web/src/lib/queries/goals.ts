@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Goal, Milestone, Task, MilestoneStatus, GoalStatus } from "@wayfare/types";
-import type { CreateGoalInput, CreateMilestoneInput } from "@wayfare/validation";
-import { snakeToCamel, snakeToCamelArray } from "@wayfare/utils";
+import type { Goal, Milestone, Task, MilestoneStatus, GoalStatus } from "@luma/types";
+import type { CreateGoalInput, CreateMilestoneInput } from "@luma/validation";
+import { snakeToCamel, snakeToCamelArray } from "@luma/utils";
 
 export async function fetchGoals(supabase: SupabaseClient, userId: string) {
   const { data, error } = await supabase

@@ -8,8 +8,8 @@ const display = Fraunces({ subsets: ["latin"], variable: "--font-display", displ
 
 export const metadata: Metadata = {
   title: {
-    default: "Wayfare — plan less, do more",
-    template: "%s · Wayfare",
+    default: "Luma — plan less, do more",
+    template: "%s · Luma",
   },
   description: "One calm place for everything you're trying to improve.",
   manifest: "/manifest.json",

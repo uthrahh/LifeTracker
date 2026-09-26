@@ -1,4 +1,4 @@
-import type { EnvironmentScene } from "@wayfare/types";
+import type { EnvironmentScene } from "@luma/types";
 
 export const DEFAULT_CATEGORIES = [
   { name: "Self-care", color: "#E8A87C" },

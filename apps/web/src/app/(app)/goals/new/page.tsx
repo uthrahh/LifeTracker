@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery } from "@tanstack/react-query";
-import { createGoalSchema, type CreateGoalInput } from "@wayfare/validation";
+import { createGoalSchema, type CreateGoalInput } from "@luma/validation";
 import { createClient } from "@/lib/supabase/client";
 import { createGoal } from "@/lib/queries/goals";
 import { fetchCategories } from "@/lib/queries/categories";

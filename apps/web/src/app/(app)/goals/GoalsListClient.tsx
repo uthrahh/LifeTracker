@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { fetchGoals, fetchGoalProgress } from "@/lib/queries/goals";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import type { Goal } from "@wayfare/types";
+import type { Goal } from "@luma/types";
 
 export function GoalsListClient({ userId }: { userId: string }) {
   const supabase = createClient();

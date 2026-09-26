@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { createClient } from "@/lib/supabase/client";
 import { fetchEventsInRange, createEvent, deleteEvent } from "@/lib/queries/calendar";
-import { getLocalDateString } from "@wayfare/utils";
+import { getLocalDateString } from "@luma/utils";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { TextField } from "@/components/ui/TextField";

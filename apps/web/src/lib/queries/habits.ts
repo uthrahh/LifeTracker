@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Habit } from "@wayfare/types";
-import type { CreateHabitInput } from "@wayfare/validation";
-import { snakeToCamel } from "@wayfare/utils";
+import type { Habit } from "@luma/types";
+import type { CreateHabitInput } from "@luma/validation";
+import { snakeToCamel } from "@luma/utils";
 
 export async function createHabit(supabase: SupabaseClient, userId: string, input: CreateHabitInput) {
   const { data, error } = await supabase

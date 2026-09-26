@@ -5,6 +5,6 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       { userAgent: "*", allow: "/", disallow: ["/home", "/goals", "/habits", "/notes", "/calendar", "/day", "/onboarding", "/settings"] },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://wayfare.app"}/sitemap.xml`,
+    sitemap: `${process.env.NEXT_PUBLIC_SITE_URL ?? "https://luma.app"}/sitemap.xml`,
   };
 }

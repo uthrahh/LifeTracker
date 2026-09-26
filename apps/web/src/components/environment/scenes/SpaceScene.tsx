@@ -1,5 +1,5 @@
 import type { SceneProps } from "../types";
-import type { TimeOfDay } from "@wayfare/utils";
+import type { TimeOfDay } from "@luma/utils";
 
 // Space doesn't literally have day/night, but the product spec asks time-of-day
 // to still influence density/brightness so the scene stays in sync with the

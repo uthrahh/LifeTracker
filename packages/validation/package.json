@@ -1,5 +1,5 @@
 {
-  "name": "@wayfare/validation",
+  "name": "@luma/validation",
   "version": "0.1.0",
   "private": true,
   "main": "./src/index.ts",

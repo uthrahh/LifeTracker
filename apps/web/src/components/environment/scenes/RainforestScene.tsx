@@ -1,5 +1,5 @@
 import type { SceneProps } from "../types";
-import type { TimeOfDay } from "@wayfare/utils";
+import type { TimeOfDay } from "@luma/utils";
 
 const SKY: Record<TimeOfDay, { top: string; bottom: string; canopy: string; canopyMid: string; canopyDark: string; floor: string }> = {
   dawn: { top: "#B7CDA0", bottom: "#E7DFC0", canopy: "#4F7A4A", canopyMid: "#3B5E38", canopyDark: "#243A24", floor: "#1B2A1B" },

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import type { RankedNextAction } from "@wayfare/utils";
+import type { RankedNextAction } from "@luma/utils";
 
 export function NextActionCard({ ranked, onComplete }: { ranked: RankedNextAction[]; onComplete: (id: string, kind: "task" | "habit") => void }) {
   const [index, setIndex] = useState(0);

@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
-import { ONBOARDING_FOCUS_AREAS, ENVIRONMENTS } from "@wayfare/config";
-import type { EnvironmentScene } from "@wayfare/types";
+import { ONBOARDING_FOCUS_AREAS, ENVIRONMENTS } from "@luma/config";
+import type { EnvironmentScene } from "@luma/types";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/Button";
 import { TextField } from "@/components/ui/TextField";
@@ -133,7 +133,7 @@ export default function OnboardingPage() {
           </div>
           {submitError ? <p className="mt-3 text-sm text-red-500">{submitError}</p> : null}
           <Button className="mt-6 w-full" disabled={isSubmitting} onClick={finish}>
-            {isSubmitting ? "Setting things up…" : "Enter Wayfare"}
+            {isSubmitting ? "Setting things up…" : "Enter Luma"}
           </Button>
         </Card>
       )}

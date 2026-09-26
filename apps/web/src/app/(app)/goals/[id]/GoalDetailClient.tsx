@@ -24,7 +24,7 @@ import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { ProgressRing } from "@/components/ui/ProgressRing";
 import { CheckCircle } from "@/components/ui/CheckCircle";
-import type { MilestoneStatus } from "@wayfare/types";
+import type { MilestoneStatus } from "@luma/types";
 
 const STATUS_LABEL: Record<MilestoneStatus, string> = { pending: "Pending", in_progress: "In progress", completed: "Completed" };
 

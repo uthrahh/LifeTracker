@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getTimeOfDay, type TimeOfDay } from "@wayfare/utils";
-import type { EnvironmentScene, EnvironmentTimeMode } from "@wayfare/types";
+import { getTimeOfDay, type TimeOfDay } from "@luma/utils";
+import type { EnvironmentScene, EnvironmentTimeMode } from "@luma/types";
 import type { EnvironmentState } from "@/components/environment/types";
 
 export interface UseEnvironmentStateOptions {

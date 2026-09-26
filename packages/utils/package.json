@@ -1,5 +1,5 @@
 {
-  "name": "@wayfare/utils",
+  "name": "@luma/utils",
   "version": "0.1.0",
   "private": true,
   "main": "./src/index.ts",
@@ -9,7 +9,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@wayfare/types": "*"
+    "@luma/types": "*"
   },
   "devDependencies": {
     "typescript": "^5.5.4",

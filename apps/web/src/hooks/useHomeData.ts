@@ -12,7 +12,7 @@ import {
   toggleTaskCompletion,
   toggleHabitCompletion,
 } from "@/lib/queries";
-import { computeHabitStreak, computeGoalProgress, rankNextActions, type NextActionCandidate } from "@wayfare/utils";
+import { computeHabitStreak, computeGoalProgress, rankNextActions, type NextActionCandidate } from "@luma/utils";
 
 export function useHomeData(userId: string | undefined, todayLocal: string) {
   const supabase = createClient();

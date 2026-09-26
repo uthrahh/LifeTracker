@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import type { EnvironmentScene, EnvironmentTimeMode } from "@wayfare/types";
-import { getLocalDateString } from "@wayfare/utils";
+import type { EnvironmentScene, EnvironmentTimeMode } from "@luma/types";
+import { getLocalDateString } from "@luma/utils";
 import { EnvironmentRenderer } from "@/components/environment/EnvironmentRenderer";
 import { useEnvironmentState } from "@/hooks/useEnvironmentState";
 import { useHomeData } from "@/hooks/useHomeData";

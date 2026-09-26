@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Category } from "@wayfare/types";
-import { snakeToCamelArray } from "@wayfare/utils";
+import type { Category } from "@luma/types";
+import { snakeToCamelArray } from "@luma/utils";
 
 /** Default (user_id null) categories plus the user's own, RLS-scoped. */
 export async function fetchCategories(supabase: SupabaseClient, userId: string) {

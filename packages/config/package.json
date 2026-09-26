@@ -1,5 +1,5 @@
 {
-  "name": "@wayfare/config",
+  "name": "@luma/config",
   "version": "0.1.0",
   "private": true,
   "main": "./src/index.ts",

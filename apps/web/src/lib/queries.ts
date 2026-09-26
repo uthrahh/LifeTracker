@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Task, Habit, HabitCompletion, Goal, Milestone } from "@wayfare/types";
-import { snakeToCamelArray } from "@wayfare/utils";
+import type { Task, Habit, HabitCompletion, Goal, Milestone } from "@luma/types";
+import { snakeToCamelArray } from "@luma/utils";
 
 /** Thin, typed query functions. Every one filters through RLS implicitly —
  * the server never needs to add `user_id = ...` itself because Postgres

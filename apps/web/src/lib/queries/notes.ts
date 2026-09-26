@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
-import type { Note } from "@wayfare/types";
-import { snakeToCamel, snakeToCamelArray } from "@wayfare/utils";
+import type { Note } from "@luma/types";
+import { snakeToCamel, snakeToCamelArray } from "@luma/utils";
 
 /**
  * v1 note content shape — plain text only. `content` is jsonb so this can

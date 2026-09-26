@@ -1,6 +1,6 @@
-# Wayfare
+# Luma
 
-> Working name — see [docs/PRODUCT.md](docs/PRODUCT.md). "One calm place for everything you're trying to improve."
+> "One calm place for everything you're trying to improve." See [docs/PRODUCT.md](docs/PRODUCT.md) for the full spec.
 
 A calm, low-friction life-management app: tasks, habits, goals, notes, calendar, and a focus timer in one coherent daily surface, wrapped in a time-of-day-aware illustrated environment.
 

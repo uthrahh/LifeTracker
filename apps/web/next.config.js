@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@wayfare/types", "@wayfare/utils", "@wayfare/validation", "@wayfare/config"],
+  transpilePackages: ["@luma/types", "@luma/utils", "@luma/validation", "@luma/config"],
   experimental: {
     optimizePackageImports: ["framer-motion"],
   },

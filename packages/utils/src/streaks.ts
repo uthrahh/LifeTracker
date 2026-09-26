@@ -1,4 +1,4 @@
-import type { HabitFrequency } from "@wayfare/types";
+import type { HabitFrequency } from "@luma/types";
 
 export interface HabitStreakResult {
   currentStreak: number;
